@@ -1,0 +1,13 @@
+F:\Programando\ProductiveProjectsRESTful\Application\bin\Debug\netcoreapp3.1\Application.deps.json
+F:\Programando\ProductiveProjectsRESTful\Application\bin\Debug\netcoreapp3.1\Application.dll
+F:\Programando\ProductiveProjectsRESTful\Application\bin\Debug\netcoreapp3.1\Application.pdb
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.csproj.AssemblyReference.cache
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.AssemblyInfoInputs.cache
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.AssemblyInfo.cs
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.csproj.CoreCompileInputs.cache
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.dll
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.pdb
+F:\Programando\ProductiveProjectsRESTful\Application\bin\Debug\netcoreapp3.1\Domain.dll
+F:\Programando\ProductiveProjectsRESTful\Application\bin\Debug\netcoreapp3.1\Domain.pdb
+F:\Programando\ProductiveProjectsRESTful\Application\obj\Debug\netcoreapp3.1\Application.csproj.CopyComplete

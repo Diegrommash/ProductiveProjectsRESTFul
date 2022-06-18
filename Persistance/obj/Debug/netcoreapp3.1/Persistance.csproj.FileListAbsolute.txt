@@ -1,0 +1,15 @@
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Persistance.deps.json
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Persistance.dll
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Persistance.pdb
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Application.dll
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Domain.dll
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Application.pdb
+F:\Programando\ProductiveProjectsRESTful\Persistance\bin\Debug\netcoreapp3.1\Domain.pdb
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.csproj.AssemblyReference.cache
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.AssemblyInfoInputs.cache
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.AssemblyInfo.cs
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.csproj.CoreCompileInputs.cache
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.csproj.CopyComplete
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.dll
+F:\Programando\ProductiveProjectsRESTful\Persistance\obj\Debug\netcoreapp3.1\Persistance.pdb
