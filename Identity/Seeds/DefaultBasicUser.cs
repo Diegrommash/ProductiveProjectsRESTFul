@@ -15,6 +15,7 @@ namespace Identity.Seeds
         {
             var defaultUser = new ApplicationUser
             {
+                //Id = "1",
                 UserName = "BasicUserName",
                 Email = "Basic@Basic.com",
                 Name = "BasicName",
@@ -28,7 +29,7 @@ namespace Identity.Seeds
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
                 if (user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "123pa$$word");
+                    await userManager.CreateAsync(defaultUser, "123Pa$$word");
                     await userManager.AddToRoleAsync(defaultUser, Roles.basic.ToString());
                 }
             }

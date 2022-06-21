@@ -28,10 +28,11 @@ namespace WebAPI
                     var rolManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
                     await DefaultRoles.SeedAsync(userManager, rolManager);
-                    await DefaultSuperAdminUser.SeedAsync(userManager, rolManager);
-                    await DefaultAdminUser.SeedAsync(userManager, rolManager);
-                    await DefaultUserUser.SeedAsync(userManager, rolManager);
                     await DefaultBasicUser.SeedAsync(userManager, rolManager);
+                    await DefaultUserUser.SeedAsync(userManager, rolManager);
+                    await DefaultAdminUser.SeedAsync(userManager, rolManager);
+                    await DefaultSuperAdminUser.SeedAsync(userManager, rolManager);
+                                                      
                 }
                 catch (Exception ex)
                 {
