@@ -35,12 +35,15 @@ namespace WebAPI
             services.AddIdentityInfraestructure(Configuration);
             services.AddSharedInfraestructure(Configuration);
             services.AddPersistenceInfraestructure(Configuration);
-            services.AddControllers();
+            //services.AddControllers()
+              //  .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize) ;    
             services.AddApiVersionExtension();
-            services.AddSwaggerGen(c =>
+            services.AddSwagger();
+
+           /* services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
-            });
+               c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
+            });*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +59,8 @@ namespace WebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

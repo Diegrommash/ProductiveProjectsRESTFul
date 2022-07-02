@@ -3,6 +3,7 @@ using Application.Features.TypeMeasurementUnits.Commands.DeleteTypeMeasurementUn
 using Application.Features.TypeMeasurementUnits.Commands.UpdateTypeMeasurementUnitCommand;
 using Application.Features.TypeMeasurementUnits.Queries.GetAllMeasurementUnitQuery;
 using Application.Features.TypeMeasurementUnits.Queries.GetTypeMeasurementUnitByIdQuery;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace WebAPI.Controllers.v1
 
         //Get api/<controller>
         [HttpGet("{id}")]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> Get(int id)
         {
             return Ok(await Mediator.Send(new GetTypeMeasurementUnitByIdQuery{Id = id}));
@@ -22,6 +24,7 @@ namespace WebAPI.Controllers.v1
 
         //Get api/<controller>
         [HttpGet()]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> Get([FromQuery] GetAllTypeMeasurementUnitParameters filter)
         {
             return Ok(await Mediator.Send(new GetAllTypeMeasurementUnitQuery 
@@ -35,6 +38,7 @@ namespace WebAPI.Controllers.v1
 
         //Post api/<controller>
         [HttpPost]
+        [Authorize(Roles = "superAdmin")]
         public async Task<IActionResult> Post(CreateTypeMeasurementUnitCommand command)
         {
             return Ok(await Mediator.Send(command));
@@ -42,6 +46,7 @@ namespace WebAPI.Controllers.v1
 
         //Put api/<controller>
         [HttpPut("{id}")]
+        [Authorize(Roles = "superAdmin")]
         public async Task<IActionResult> Put(int id, UpdateTypeMeasurementUnitCommand command)
         {
             if (id != command.Id)
@@ -52,6 +57,7 @@ namespace WebAPI.Controllers.v1
 
         //Put api/<controller>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "superAdmin")]
         public async Task<IActionResult> Delete(int id)
         {
             return Ok(await Mediator.Send(new DeleteTypeMeasurementUnitCommand { Id = id}));

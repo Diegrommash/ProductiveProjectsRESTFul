@@ -3,9 +3,9 @@ using Application.Enums;
 using Application.Exceptions;
 using Application.Interfaces;
 using Application.Wrappers;
+using Domain.Entities.Identity;
 using Domain.Settings;
 using Identity.Helpers;
-using Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -23,12 +23,12 @@ namespace Identity.Services
     public class AccountService : IAccountService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly JWTSettings _jWTSettings;
         private readonly IDateTimeService _dateTimeService;
 
-        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jWTSettings, IDateTimeService dateTimeService)
+        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jWTSettings, IDateTimeService dateTimeService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -37,7 +37,7 @@ namespace Identity.Services
             _dateTimeService = dateTimeService;
         }
 
-        public async Task<Response<AuthenticationResponse>> AythenticateAsync(AuthenticationRequest request, string ipAddress)
+        public async Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request, string ipAddress)
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
             if(user == null)
@@ -53,7 +53,7 @@ namespace Identity.Services
 
             JwtSecurityToken jwtSecurityToken = await GenerateJWTToken(user);
             AuthenticationResponse response = new AuthenticationResponse();
-            response.Id = Convert.ToInt32(user.Id);
+            response.Id = user.Id;         
             response.JWToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             response.Email = user.Email;
             response.UserName = user.UserName;
@@ -99,9 +99,11 @@ namespace Identity.Services
             }
             else
             {
-                throw new ApiException($"{result.Errors}.");
+                throw new ApiException($"{result.Errors.ToList()}.");
             }
         }
+
+
 
         private async Task<JwtSecurityToken> GenerateJWTToken(ApplicationUser user)
         {

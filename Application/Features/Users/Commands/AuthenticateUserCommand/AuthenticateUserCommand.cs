@@ -30,7 +30,7 @@ namespace Application.Features.Users.Commands.AuthenticateUserCommand
 
         public async Task<Response<AuthenticationResponse>> Handle(AuthenticateUserCommand request, CancellationToken cancellationToken)
         {
-            return await _accountService.AythenticateAsync(new AuthenticationRequest
+            return await _accountService.AuthenticateAsync(new AuthenticationRequest
             {
                 Email = request.Email,
                 Password = request.Password

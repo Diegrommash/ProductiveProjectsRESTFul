@@ -1,12 +1,14 @@
 ﻿using Application.Interfaces;
 using Application.Wrappers;
+using Domain.Entities.Identity;
 using Domain.Settings;
 using Identity.Contexts;
-using Identity.Models;
+using Identity.Repository;
 using Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,10 +28,35 @@ namespace Identity
                 configuration.GetConnectionString("IdentityConnection"),
                 b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<IdentityContext>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                /*.AddUserStore<UserStore<
+                    ApplicationUser, 
+                    ApplicationRole,
+                    IdentityContext, 
+                    string, 
+                    IdentityUserClaim<string>, 
+                    ApplicationUserRole, 
+                    IdentityUserLogin<string>, 
+                    IdentityUserToken<string>, 
+                    IdentityRoleClaim<string>>>()
+                .AddRoleStore<RoleStore<
+                    ApplicationRole,
+                    IdentityContext,
+                    string,
+                    ApplicationUserRole,
+                    IdentityRoleClaim<string>>>()*/
+                .AddEntityFrameworkStores<IdentityContext>()
+                .AddDefaultTokenProviders();
 
+            #region
+            services.AddTransient(typeof(IReadRepositoryAsync<>), typeof(IdentityRepositoryAsync<>));
+            #endregion
+
+            #region Persistence sercvices
             services.AddTransient<IAccountService, AccountService>();
-            
+            services.AddTransient<IRoleService, RoleService>();
+            #endregion
+
             services.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
             services.AddAuthentication(options =>
             {

@@ -19,7 +19,7 @@ namespace Persistance
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             #region
-            services.AddTransient(typeof(IRepositoryAsync<>), typeof(MyRepositoryAsync<>));
+            services.AddTransient(typeof(IRepositoryAsync<>), typeof(ApplicationRepositoryAsync<>));
             #endregion
 
             #region Caching

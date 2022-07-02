@@ -1,9 +1,9 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.TypeMeasurementUnit;
 using Application.Interfaces;
-using Application.Specifications;
+using Application.Specifications.Application;
 using Application.Wrappers;
 using AutoMapper;
-using Domain.Entities;
+using Domain.Entities.Application;
 using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;

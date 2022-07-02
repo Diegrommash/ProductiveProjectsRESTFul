@@ -2,7 +2,7 @@
 using Application.Interfaces;
 using Application.Wrappers;
 using AutoMapper;
-using Domain.Entities;
+using Domain.Entities.Application;
 using MediatR;
 using System;
 using System.Collections.Generic;

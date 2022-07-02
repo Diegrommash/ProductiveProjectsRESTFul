@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Domain.Entities;
 using AutoMapper;
+using Domain.Entities.Application;
 
 namespace Application.Features.TypeMeasurementUnits.Commands.CreateTypeMeasurementUnitCommand
 {
@@ -27,6 +27,7 @@ namespace Application.Features.TypeMeasurementUnits.Commands.CreateTypeMeasureme
             _mapper = mapper;
             _repositoryAsync = repositoryAsync;
         }
+
         public  async Task<Response<int>> Handle(CreateTypeMeasurementUnitCommand request, CancellationToken cancellationToken)
         {
             var newRecord = _mapper.Map<TypeMeasurementUnit>(request);

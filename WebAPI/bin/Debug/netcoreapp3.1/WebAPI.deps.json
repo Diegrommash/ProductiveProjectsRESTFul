@@ -309,27 +309,27 @@
           "WebAPI.dll": {}
         }
       },
-      "Ardalis.Specification/6.0.1": {
+      "Ardalis.Specification/6.1.0": {
         "runtime": {
           "lib/netstandard2.0/Ardalis.Specification.dll": {
-            "assemblyVersion": "6.0.1.0",
-            "fileVersion": "6.0.1.0"
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Ardalis.Specification.dll": {}
         }
       },
-      "Ardalis.Specification.EntityFrameworkCore/6.0.1": {
+      "Ardalis.Specification.EntityFrameworkCore/6.1.0": {
         "dependencies": {
-          "Ardalis.Specification": "6.0.1",
+          "Ardalis.Specification": "6.1.0",
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.Relational": "5.0.17"
         },
         "runtime": {
           "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.dll": {
-            "assemblyVersion": "6.0.1.0",
-            "fileVersion": "6.0.1.0"
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.0"
           }
         },
         "compile": {
@@ -511,6 +511,37 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.JsonPatch/3.1.26": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {
+            "assemblyVersion": "3.1.26.0",
+            "fileVersion": "3.100.2622.27403"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/3.1.26": {
+        "dependencies": {
+          "Microsoft.AspNetCore.JsonPatch": "3.1.26",
+          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json.Bson": "1.0.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
+            "assemblyVersion": "3.1.26.0",
+            "fileVersion": "3.100.2622.27403"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.Versioning/5.0.0": {
@@ -1242,7 +1273,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.6.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "5.6.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.2",
           "System.IdentityModel.Tokens.Jwt": "6.19.0"
         },
         "runtime": {
@@ -1301,7 +1332,7 @@
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/3.1.5": {
         "dependencies": {
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
@@ -1317,7 +1348,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "3.1.5",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
@@ -1379,7 +1410,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.3.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "3.1.5",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.2",
           "NuGet.Frameworks": "4.7.0"
         },
         "runtime": {
@@ -1500,15 +1531,29 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
           }
         },
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.2.22727"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
       "NuGet.Frameworks/4.7.0": {
@@ -2728,14 +2773,14 @@
       },
       "Application/1.0.0": {
         "dependencies": {
-          "Ardalis.Specification": "6.0.1",
+          "Ardalis.Specification": "6.1.0",
           "AutoMapper": "11.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Domain": "1.0.0",
           "FluentValidation.AspNetCore": "11.0.2",
           "FluentValidation.DependencyInjectionExtensions": "11.0.2",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
-          "Newtonsoft.Json": "11.0.2"
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.26"
         },
         "runtime": {
           "Application.dll": {}
@@ -2745,6 +2790,9 @@
         }
       },
       "Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.17"
+        },
         "runtime": {
           "Domain.dll": {}
         },
@@ -2755,6 +2803,7 @@
       "Identity/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Ardalis.Specification.EntityFrameworkCore": "6.1.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.26",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore": "5.0.17",
@@ -2772,7 +2821,7 @@
       "Persistance/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
-          "Ardalis.Specification.EntityFrameworkCore": "6.0.1",
+          "Ardalis.Specification.EntityFrameworkCore": "6.1.0",
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
@@ -4378,19 +4427,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Ardalis.Specification/6.0.1": {
+    "Ardalis.Specification/6.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eLtJq5eI1wXDxPZQY3DW4lKFYgGuBobe9Z60L0uYjEnKQ3t2ACVvnD+qXaL4wfJ9r8aAAv6TAj640RwPZK5BEw==",
-      "path": "ardalis.specification/6.0.1",
-      "hashPath": "ardalis.specification.6.0.1.nupkg.sha512"
+      "sha512": "sha512-3+DIYrDWwqXMSki3v+kjP8MhKcCoUHLGp6Lhz1+rwjMTHKe8pYUEJWjOxsS5umyL+IIzvaVZUZmwXCs7rGHy4Q==",
+      "path": "ardalis.specification/6.1.0",
+      "hashPath": "ardalis.specification.6.1.0.nupkg.sha512"
     },
-    "Ardalis.Specification.EntityFrameworkCore/6.0.1": {
+    "Ardalis.Specification.EntityFrameworkCore/6.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JaY80+zjTDLw04GR51uFAEy/7XjVTrRH/djb/frJwhk/f7iWiurh10hMa15NnCojD89HlZNZOWi9WI77mVD5/g==",
-      "path": "ardalis.specification.entityframeworkcore/6.0.1",
-      "hashPath": "ardalis.specification.entityframeworkcore.6.0.1.nupkg.sha512"
+      "sha512": "sha512-/d67ScQWCZaUiNqWoBo3vThRuhKou5hW2XGt6a5ibRp62n7vXd+W8c2Votj52ooaxusitE476uCNJAGt3r0CdA==",
+      "path": "ardalis.specification.entityframeworkcore/6.1.0",
+      "hashPath": "ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512"
     },
     "AutoMapper/11.0.1": {
       "type": "package",
@@ -4489,6 +4538,20 @@
       "sha512": "sha512-Ptdhz86gV2XCbEChGX/ji4FQpAgnN/ctaegUQVbWgExLnyEoy2go+8NkYgIfEKUXBVaIewl/HYDeIK6GACKN9Q==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.17",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.5.0.17.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.JsonPatch/3.1.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k4Np8XORkVo1DpvZYRWoivR99BpuPC0ji9VbtcwfxYGxsNKjUmAfcV0BHJy8QHHgSr4bKf/CyBHpRK/YT0xfKQ==",
+      "path": "microsoft.aspnetcore.jsonpatch/3.1.26",
+      "hashPath": "microsoft.aspnetcore.jsonpatch.3.1.26.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/3.1.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FwJjkG6BBb9YqUxhinGEY/bk+uUPAiLUA+R0k7TD3tbDFW7SXXkcNFxlqtMh3jRGAvLRGZanhXD/qgcpsFomzw==",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/3.1.26",
+      "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.3.1.26.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.Versioning/5.0.0": {
       "type": "package",
@@ -4889,12 +4952,19 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/12.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    },
+    "Newtonsoft.Json.Bson/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
+      "path": "newtonsoft.json.bson/1.0.2",
+      "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
     "NuGet.Frameworks/4.7.0": {
       "type": "package",

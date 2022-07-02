@@ -1,14 +1,10 @@
-using Identity.Models;
+using Domain.Entities.Identity;
 using Identity.Seeds;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebAPI
@@ -25,7 +21,7 @@ namespace WebAPI
                 try
                 {
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                    var rolManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    var rolManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
 
                     await DefaultRoles.SeedAsync(userManager, rolManager);
                     await DefaultBasicUser.SeedAsync(userManager, rolManager);
