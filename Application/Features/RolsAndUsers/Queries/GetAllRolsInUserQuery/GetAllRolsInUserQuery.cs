@@ -16,58 +16,28 @@ using System.Threading.Tasks;
 
 namespace Application.Features.RolsAndUsers.Queries.GetAllRolsInUserQuery
 {
-    public class GetAllRolsInUserQuery : IRequest<PageResponse<List<RolsInUserDTO>>>
+    public class GetAllRolsInUserQuery : IRequest<Response<RolsInUserDTO>>
     {
-        public int PageNumber { get; set; }
-        public int PageSize { get; set; }
         public string UserId { get; set; }
-        public string Name { get; set; }
     }
 
-    public class GetAllRolsInUserQueryHandler : IRequestHandler<GetAllRolsInUserQuery, PageResponse<List<RolsInUserDTO>>>
+    public class GetAllRolsInUserQueryHandler : IRequestHandler<GetAllRolsInUserQuery, Response<RolsInUserDTO>>
     {
-        private readonly IReadRepositoryAsync<ApplicationUser> _repositoryAsync;
-        private readonly IDistributedCache _distributedCache;
+        private readonly IRoleService _roleService;
         private readonly IMapper _mapper;
 
-        public GetAllRolsInUserQueryHandler(IDistributedCache distributedCache, IMapper mapper, IReadRepositoryAsync<ApplicationUser> repositoryAsync)
-        {
-            _distributedCache = distributedCache;
+        public GetAllRolsInUserQueryHandler(IRoleService roleService, IMapper mapper)
+        {        
+            _roleService = roleService; 
             _mapper = mapper;
-            _repositoryAsync = repositoryAsync;
         }
 
-        public async Task<PageResponse<List<RolsInUserDTO>>> Handle(GetAllRolsInUserQuery request, CancellationToken cancellationToken)
+        public async Task<Response<RolsInUserDTO>> Handle(GetAllRolsInUserQuery request, CancellationToken cancellationToken)
         {
 
-            var cachekey = $"RolsInUserDtoList_{request.PageNumber}_{request.PageSize}_{request.UserId}_{request.Name}";
-            string serializedRolsInUserDtoList;
-            var rolsInUserList = new List<ApplicationUser>();
-            var rolsInUserDtoList = new List<RolsInUserDTO>();
-
-            var redisRolsInUserDtoList = await _distributedCache.GetAsync(cachekey);
-            if (redisRolsInUserDtoList != null)
-            {
-                serializedRolsInUserDtoList = Encoding.UTF8.GetString(redisRolsInUserDtoList);
-                rolsInUserDtoList = JsonConvert.DeserializeObject<List<RolsInUserDTO>>(serializedRolsInUserDtoList);
-            }
-            else
-            {
-                rolsInUserList = await _repositoryAsync.ListAsync(new PageRolsInUserSpecification(request.PageNumber, request.PageSize, request.UserId, request.Name));
-                rolsInUserDtoList = _mapper.Map<List<RolsInUserDTO>>(rolsInUserList);
-                serializedRolsInUserDtoList = JsonConvert.SerializeObject(rolsInUserDtoList);
-                redisRolsInUserDtoList = Encoding.UTF8.GetBytes(serializedRolsInUserDtoList);
-
-                var options = new DistributedCacheEntryOptions()
-                    .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(2));
-
-                await _distributedCache.SetAsync(cachekey, redisRolsInUserDtoList, options);
-            }
-
-            //var rolsInUser = _mapper.Map<List<RolsInUserDTO>>(rolsInUserList);
-
-            return new PageResponse<List<RolsInUserDTO>>(rolsInUserDtoList, request.PageNumber, request.PageSize);
+            var rolsInUser = await _roleService.GetAllRolsInUserAsync(request.UserId);
+            var rolsInUserDTO = _mapper.Map<RolsInUserDTO>(rolsInUser.Data);
+            return new Response<RolsInUserDTO>(rolsInUserDTO);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Identity.Contexts
             base.OnModelCreating(modelBuilder);
 
 
-           /*modelBuilder.Entity<ApplicationUserRole>(userRole =>
+           modelBuilder.Entity<ApplicationUserRole>(userRole =>
             {
                 userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
 
@@ -40,12 +40,12 @@ namespace Identity.Contexts
                     .WithMany(r => r.UserRoles)
                     .HasForeignKey(ur => ur.UserId)
                     .IsRequired();
-            });*/
+            });
 
             modelBuilder.Entity<ApplicationUser>(user =>
             {
                 user.HasMany(e => e.UserRoles)
-                    .WithOne()
+                    .WithOne(e  => e.User)
                     .HasForeignKey(ur => ur.UserId)
                     .IsRequired();
             });

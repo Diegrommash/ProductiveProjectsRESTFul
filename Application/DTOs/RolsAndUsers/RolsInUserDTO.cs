@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Identity;
+﻿using Application.DTOs.RolsAndUsers.List;
+using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Application.DTOs.RolsAndUsers
         public string Id { get; set; }
         public string UserName { get; set; }
 
-        public IList<RolsForListDTO> Rols { get; set; }
+        public IList<RoleForListDTO> Rols { get; set; }
         
         //public ICollection<ApplicationUserRole> UserRoles { get; set; }
 

@@ -1,26 +1,33 @@
 ﻿using Application.DTOs.RolsAndUsers;
+using Application.Interfaces;
 using Application.Wrappers;
+using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Application.Features.RolsAndUsers.Queries.GetAllUsersInRoleQuery
 {
-    public class GetAllUsersInRoleQuery : IRequest<PageResponse<List<UserInRoleDTO>>>
+    public class GetAllUsersInRoleQuery : IRequest<Response<UsersInRoleDTO>>
     {
-        public int PageNumber { get; set; }
-        public int PageSize { get; set; }
-        public string Name { get; set; }
+        public string RoleId { get; set; }
     }
 
-    public class GetAllUsersInRoleQueryHandler : IRequestHandler<GetAllUsersInRoleQuery, PageResponse<List<UserInRoleDTO>>>
+    public class GetAllUsersInRoleQueryHandler : IRequestHandler<GetAllUsersInRoleQuery, Response<UsersInRoleDTO>>
     {
-        public Task<PageResponse<List<UserInRoleDTO>>> Handle(GetAllUsersInRoleQuery request, CancellationToken cancellationToken)
+        private readonly IRoleService _roleService;
+        private readonly IMapper _mapper;
+        public GetAllUsersInRoleQueryHandler(IMapper mapper, IRoleService roleService)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _roleService = roleService;
+        }
+
+        public async Task<Response<UsersInRoleDTO>> Handle(GetAllUsersInRoleQuery request, CancellationToken cancellationToken)
+        {
+            var usersInRole = await _roleService.GetAllUsersInRoleAsync(request.RoleId);
+            var usersInRoleDTO = _mapper.Map<UsersInRoleDTO>(usersInRole.Data);
+            return new Response<UsersInRoleDTO>(usersInRoleDTO);
         }
     }
 }

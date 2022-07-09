@@ -1,4 +1,7 @@
-﻿using Application.Wrappers;
+﻿using Application.DTOs.RolsAndUsers;
+using Application.Specifications.Identity;
+using Application.Wrappers;
+using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,5 +14,7 @@ namespace Application.Interfaces
     {
         Task<Response<string>> AddRoleToUserAsync(string userId, string roleId);
         Task<Response<string>> RemoveRoleFromUserAsync(string userId, string roleId);
+        Task<Response<ApplicationUser>> GetAllRolsInUserAsync(string userId);
+        Task<Response<ApplicationRole>> GetAllUsersInRoleAsync(string RoleId);
     }
 }

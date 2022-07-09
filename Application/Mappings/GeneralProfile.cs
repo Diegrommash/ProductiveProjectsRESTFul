@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.RolsAndUsers;
+using Application.DTOs.RolsAndUsers.List;
 using Application.DTOs.TypeMeasurementUnit;
 using Application.Features.TypeMeasurementUnits.Commands.CreateTypeMeasurementUnitCommand;
 using AutoMapper;
@@ -22,7 +23,7 @@ namespace Application.Mappings
             
             #region ApplicationUser and RolsInUserDto
 
-            CreateMap<ApplicationRole, RolsForListDTO>();
+            CreateMap<ApplicationRole, RoleForListDTO>();
 
             CreateMap<ApplicationUser, RolsInUserDTO>()
                 .ForMember(riu => riu.Rols, src =>
@@ -31,6 +32,16 @@ namespace Application.Mappings
                             .ToList()));
             #endregion
 
+            #region ApplicationRole and UserInRoleDto
+
+            CreateMap<ApplicationUser, UserForListDTO>();
+
+            CreateMap<ApplicationRole, UsersInRoleDTO>()
+                .ForMember(uir => uir.Users, src =>
+                    src.MapFrom(ar =>
+                        ar.UserRoles.Select(ur => ur.User)
+                            .ToList()));
+            #endregion
 
 
             //CreateMap<ApplicationUser, RolsInUserDTO>();

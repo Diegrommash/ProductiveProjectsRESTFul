@@ -1,6 +1,7 @@
 ﻿using Application.Features.RolsAndUsers.Commands.AddRoleToUserCommand;
 using Application.Features.RolsAndUsers.Commands.RemoveRoleFromUserCommand;
 using Application.Features.RolsAndUsers.Queries.GetAllRolsInUserQuery;
+using Application.Features.RolsAndUsers.Queries.GetAllUsersInRoleQuery;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -23,16 +24,16 @@ namespace WebAPI.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpGet("userId")]
-        public async Task<IActionResult> GetAllRolsFromUser([FromQuery] GetAllRolsInUserQueryParameters filter, string userId)
+        [HttpGet("rolsInUser/userId")]
+        public async Task<IActionResult> GetAllRolsInUser(string userId)
         {
-            return Ok(await Mediator.Send(new GetAllRolsInUserQuery
-            {
-                UserId = userId,
-                Name = filter.Name,
-                PageNumber = filter.PageNumber,
-                PageSize = filter.PageSize
-            }));
+            return Ok(await Mediator.Send(new GetAllRolsInUserQuery {UserId = userId}));
+        }
+
+        [HttpGet("usersInRole/roleId")]
+        public async Task<IActionResult> GetAllUserInRole(string roleId)
+        {
+            return Ok(await Mediator.Send(new GetAllUsersInRoleQuery { RoleId = roleId }));
         }
     }
 }

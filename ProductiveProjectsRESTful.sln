@@ -10,6 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{267CAA95-FBC2-4798-BEFB-82818DABA6CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{865A4E4B-60C8-4816-8A15-06CE32229886}"
+	ProjectSection(SolutionItems) = preProject
+		RolsInUserPaged.txt = RolsInUserPaged.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{6FE95AB9-31D0-48E5-8362-DD9BD336DC51}"
 EndProject
